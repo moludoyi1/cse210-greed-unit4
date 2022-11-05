@@ -24,9 +24,9 @@ namespace GreedGame
             Raylib.CloseWindow();
         }
 
-        public int Score()
-        {
+        // public int Score()
+        // {
             
-        }
+        // }
     }
 }
