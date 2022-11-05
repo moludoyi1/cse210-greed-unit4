@@ -3,8 +3,20 @@ using System.Numerics;
 
 class GameObject {
     public Vector2 Position{get; set;} = new Vector2(0, 0);
-    public Vector2 Velocity{get; set;} = new Vector2(0, 0);
+    public Vector2 Velocity{get; set;} = new Vector2(0, 1);
+
+    virtual public void Draw() {
+        // not available at the moment
+    }
+
+    public void Move() {
+        Vector2 NewPostion = this.Position;
+        NewPostion.X += Velocity.X;
+        NewPostion.Y += Velocity.Y;
+        this.Position = NewPostion;
+    }
 }
+
 
 class ColoredObject {
     public Color Color{get; set;}
@@ -22,7 +34,7 @@ class GameRock {
     }
 
     override public void Draw() {
-        Raylib.Draw
+        Raylib.DrawCircle((int)Position.X, (int)Position.Y, Size, Color);
     }
 }
 
