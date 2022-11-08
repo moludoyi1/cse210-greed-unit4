@@ -18,7 +18,7 @@ class GameObject {
 }
 
 
-class ColoredObject {
+class ColoredObject: GameObject {
     public Color Color{get; set;}
 
     public ColoredObject(Color color) {

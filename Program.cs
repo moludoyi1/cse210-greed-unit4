@@ -12,21 +12,31 @@ namespace GreedGame
             var Objects = new List<GameObject>();
             var Random = new Random();
 
-            Raylib.InitWindow(ScreenWidth, ScreenHeight, "GameObjects");
+            Raylib.InitWindow(ScreenWidth, ScreenHeight, "GameObject");
             Raylib.SetTargetFPS(80);
+
+            while (!Raylib.WindowShouldClose()) {
+                var whichType =  Random.Next(3);
+
+                var randomY = Random.Next(-2, 2);
+                var randomX = Random.Next(-2, 2);
+
+                var position = new Vector2(ScreenWidth, ScreenHeight); //####
+                
+            }
             // Raylib.InitWindow(800, 480, "Score: ");
 
-            while (!Raylib.WindowShouldClose())
-            {
-                Raylib.BeginDrawing();
-                Raylib.ClearBackground(Color.BLACK);
+            // while (!Raylib.WindowShouldClose())
+            // {
+            //     Raylib.BeginDrawing();
+            //     Raylib.ClearBackground(Color.BLACK);
 
-                Raylib.DrawText("Score: ", 12, 12, 20, Color.WHITE);
+            //     Raylib.DrawText("Score: ", 12, 12, 20, Color.WHITE);
 
-                Raylib.EndDrawing();
-            }
+            //     Raylib.EndDrawing();
+            // }
 
-            Raylib.CloseWindow();
+            // Raylib.CloseWindow();
         }
 
         // public int Score()
