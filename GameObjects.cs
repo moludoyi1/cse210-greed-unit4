@@ -26,7 +26,7 @@ class ColoredObject: GameObject {
     }
 }
 
-class GameRock {
+class GameRock: ColoredObject {
     public int Size {get; set;}
     
     public GameRock(Color color, int size): base(color) {
@@ -38,8 +38,20 @@ class GameRock {
     }
 }
 
-class GameGem {
-    public int  {get; set;}
+class GameGem: ColoredObject {
 
+    public int Gem { get; set; }
+
+    public GameGem(Color color, int size): base(color){
+        Gem = gem;
+    }
+
+    public override void Draw()
+    {
+        Raylib.DrawTriangle((int)Position.X, (int)Position.Y, Gem, Color);
+    }
+}
+
+class ObjectColor {
     public
 }
