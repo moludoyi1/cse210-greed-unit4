@@ -22,7 +22,7 @@ namespace GreedGame
                 Raylib.ClearBackground(Color.BLACK);
                 
                 // add a new object to the screen every iteration of the game loop
-                var whichType =  Random.Next(3);
+                var whichType =  Random.Next(300);
 
                 var randomY = Random.Next(1, 3);
                 var randomX = Random.Next(0, ScreenWidth);
@@ -47,25 +47,9 @@ namespace GreedGame
                     default:
                         break;
                 }
+                Raylib.BeginDrawing()
+
             }
-            // Raylib.InitWindow(800, 480, "Score: ");
-
-            // while (!Raylib.WindowShouldClose())
-            // {
-            //     Raylib.BeginDrawing();
-            //     Raylib.ClearBackground(Color.BLACK);
-
-            //     Raylib.DrawText("Score: ", 12, 12, 20, Color.WHITE);
-
-            //     Raylib.EndDrawing();
-            // }
-
-            // Raylib.CloseWindow();
         }
-
-        // public int Score()
-        // {
-            
-        // }
     }
 }
