@@ -1,41 +1,45 @@
-// using Raylib_cs;
-// using System.Numerics;
-// class Player: GameObject {
+using Raylib_cs;
+using System.Numerics;
 
-//     Texture2D texture;
+class Player: MovementHorizontal{
+    override public void Draw(){
+    var PlayerRectangle = new Rectangle(410, 400, 20, 20);
+    Raylib.DrawRectangle((int)Position.X, (int)Position.Y, 20,20, Color.GREEN);
+    }
+}
+abstract class MovementHorizontal{
+    public Vector2 Position { get; set; } = new Vector2(0, 0);
+    public Vector2 Velocity { get; set; } = new Vector2(0, 0);
 
-//     public Player() {
-        
-//         var image = Raylib.LoadImage("link.png");
-//         this.texture = Raylib.LoadTextureFromImage(image);
-//         Raylib.UnloadImage(image);
-//     }
+    virtual public void Draw(){
+    }
+    public void MovePlayer()
+    {
+        Vector2 NewPosition = Position;
+        if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
+                    NewPosition.X += 2;
+                    Position = NewPosition;
+                }
+        if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
+                    NewPosition.X -= 2;
+                    Position = NewPosition;
+                }
+        else{
+            Position = NewPosition;
+        }
+    }
+}
 
-
-//     public override void Move()
-//     {
-//         // Reset the velocity every frame unless keys are being pressed
-//         var velocity = new Vector2();
-//         var movementSpeed = 3;
-
-//         if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
-//             velocity.X = movementSpeed;
-//         }
-
-//         if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT)) {
-//             velocity.X = -movementSpeed;
-//         }
-
-//         if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
-//             velocity.Y = -movementSpeed;
-//         }
-
-//         if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)) {
-//             velocity.Y = movementSpeed;
-//         }
-
-//         Velocity = velocity;
-
-//         base.Move();
-//     }
-// }
+abstract class MovementVertical{
+    public Vector2 Position {get; set; } = new Vector2(0, 0);
+    public Vector2 Velocity {get; set; } = new Vector2(0, 0);
+    virtual public void Draw() {
+    }
+    public void MoveVertical(){
+        Vector2 NewPosition = Position;
+        NewPosition.X += Velocity.X;
+        NewPosition.Y += Velocity.Y;
+        Position = NewPosition;
+    }
+   
+}
